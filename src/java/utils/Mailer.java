@@ -24,7 +24,7 @@ public class Mailer {
         boolean msgSent = false;
         //get properties obj
         Properties props = new Properties();
-        props.put("mail.smtp.host", "stmp.gmail.com");
+        props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
@@ -46,6 +46,7 @@ public class Mailer {
             message.setText(msg.toString());
             //send message
             Transport.send(message);
+            msgSent=true;
         } catch (MessagingException e) {
             System.out.println(e);
         }
